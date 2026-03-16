@@ -38,7 +38,8 @@ IS_WINDOWS = sys.platform.startswith("win")
 # утилиты
 # -------------------------
 def resource_path(relative_path: str):
-    return os.path.join(os.path.abspath("."), relative_path)
+    base_path = getattr(sys, "_MEIPASS", os.path.abspath("."))
+    return os.path.join(base_path, relative_path)
 
 
 def rounded_rect(canvas, x1, y1, x2, y2, r, **kwargs):
